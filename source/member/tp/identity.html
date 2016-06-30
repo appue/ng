@@ -1,0 +1,54 @@
+<div ng-if="tPage.view" class="mod_header_line"></div>
+<section ng-if="tPage.view" class="member_identity">
+    <!-- 没有认证的 -->
+    <div ng-if="tPage.type==1" class="identity_add">
+    	<div class="iname" ng-class="{err: err.name}">
+    		<input ng-model="tInput.name" ng-focus="err.name=null" type="text" placeholder="请输入真实姓名" />
+    	</div>
+    	<div class="imobile" ng-class="{err: err.mobile}">
+            <!-- <input ng-model="tInput.mobile" ng-focus="err.mobile=null" ng-change="chkMobile()" ng-blur="chkMobile()" type="tel" placeholder="请输入联系方式" /> -->
+    		<input ng-model="tInput.mobile" ng-focus="err.mobile=null" type="tel" placeholder="请输入联系方式" />
+    	</div>
+    	<div class="icard" ng-class="{err: err.card}">
+    		<input ng-model="tInput.card" ng-focus="err.card=null" ng-change="setCard()" ng-blur="chkCard()" placeholder="请输入身份证号" />
+    	</div>
+
+
+        <ul class="iimg">
+            <li>
+                <div class="a">
+                    <div class="ia" ng-if="!tInput.img" ng-click="uploadImages($event)"></div>
+                    <div class="ib" ng-if="tInput.img">
+                        <img ng-src="{{tInput.img}}@120h_120w_1e_1c" />
+                        <span ng-click="tInput.img=''">&#xe603;</span>
+                    </div>
+                </div>
+                <div style="width:20px;"></div>
+                <div class="b"><img src="themes/img/card.jpg" /></div>
+            </li>
+            <li>
+                <div><span>请按照右侧实例<br>上传手持身份证照</span></div>
+                <div>示例</div>
+            </li>
+        </ul>
+
+        <div ng-click="setPush($event)" class="ibtn">提交资料</div>
+    </div>
+
+    <!-- 认证后的展示 -->
+    <div ng-if="tPage.type==2" class="identity_show">
+        <div>
+            账户已实名认证
+        </div>
+        <ul>
+            <li><span>真实姓名：</span>{{tData.trueName}}</li>
+            <li><span>联系方式：</span>{{tData.mobile}}</li>
+            <li><span>身份证号：</span>{{tData.cardNo}}</li>
+        </ul>
+    </div>
+
+    <!-- 提交认证信息后 -->
+    <div ng-if="tPage.result" class="identity_result">
+        <p>您的实名认证申请已经提交成功！</p>
+    </div>
+</section>

@@ -1,0 +1,36 @@
+<style type="text/css">
+body{background: #f8f8f8;}
+</style>
+<div ng-if="tPage.view" class="mod_header_line"></div>
+<section ng-if="tPage.view" class="member_wallet">
+    <div class="page_binding">
+        <ul ngd-click="toBinding($event, v)" selector="li" ng-if="tData.binding" class="i_type">
+            <li ng-repeat="(k,v) in tData.list track by $index" class="icon_arrow {{v.class}}">
+                <p>{{v.title}}</p>
+                <p>立即绑定</p>
+            </li>
+        </ul>
+
+        <ul ng-if="tData.acount" class="i_acount">
+            <li ng-repeat="(k,v) in tData.list track by $index" class="{{v.class}}">
+                <div>
+                    <p>{{v.title}}</p>
+                    <p>{{v.acount}}</p>
+                </div>
+                <div>已绑定</div>
+            </li>
+        </ul>
+
+        <div style="padding:10px;line-height:20px;">
+            亲，绑定提现账号前建议先登录您的支付宝或微信哦~
+        </div>
+
+        <div class="i_text">
+            <h3><p>绑定须知</p></h3>
+            <div>
+                为了保障您的资金安全，首次绑定第三方支付账户时需要进行验证;<br><br>
+                请您先使用所要绑定的第三方支付账户（如支付宝账户）支付0.01（支付后一个工作日内返还）。
+            </div>
+        </div>
+    </div>
+</section>

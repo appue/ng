@@ -1,0 +1,51 @@
+<style type="text/css">
+body {
+	background: #f8f8f8;
+}
+</style>
+<header-opacity share="share"></header-opacity>
+<section class="expand_live" overflow-scroll="true">
+	<div class="c_banner">
+		<img ng-src="http://img-ossimg.ajmide.com/program/10135-1xF0Oa.jpg@200h_400w_1e_1c|40-10bl" />
+		<div>白头阿萨德速度发速度</div>
+	</div>
+	<div class="mod_tab">
+		<div class="select">直播</div>
+		<div>进入社区</div>
+	</div>
+
+	<ul class="c_list">
+		<li ng-repeat="(k,v) in tData.list track by $index">
+			<div class="i_user">
+				<img ng-if="v.user.imgPath" ng-src="{{v.user.imgPath | cutuserimage}}" />
+				<img ng-if="!v.user.imgPath" ng-src="{{UserImage}}" />
+			</div>
+			<div class="i_text">
+				<div class="i_name">
+                    <p>{{v.user.username | wxusername}}</p>
+                    <!-- <p>{{v.postTime | formatTime}}</p> -->
+                    <p>{{v.postTime}}</p>
+				</div>
+				<div class="i_reply">
+					{{v.reply | rmimg}}
+					<div></div>
+				</div>
+			</div>
+		</li>
+	</ul>
+
+	<no-more ng-if="tData.list.length>0 && tPage.pageEnd"></no-more>
+    <no-data ng-if="tPage.isNo"></no-data>
+    <infinite-scroll ng-if="!tPage.pageEnd" on-infinite="loadMore()"></infinite-scroll>
+</section>
+
+<div class="expand_live_submit">
+	<div class="c_input">
+		<div ng-click="img=true">&#xe612;</div>
+		<input ng-focus="img=null" placeholder="参与互动" type="text" />
+		<div>&#xe608;</div>
+	</div>
+	<div ng-if="img" class="c_img">
+		<div>&#xe60b;</div>
+	</div>
+</div>

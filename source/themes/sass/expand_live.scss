@@ -1,0 +1,130 @@
+.expand_live {
+	.c_banner {
+		position: relative;
+		img {
+			width: 100%;
+			display: block;
+		}
+		div {
+			background: rgba(0,0,0,0.3);
+			line-height: 20px;
+			padding: 5px;
+			color: #fff;
+			@include box-sizing();
+			@include position($left:0, $bottom:0, $width:100%);
+		}
+	}
+
+	.c_list {
+		width: 100%;
+		li {
+			padding: 10px;
+			@include box();
+			.i_user {
+				// padding-top: 5px;
+				text-align: center;
+				margin-right: 5px;
+				border: 5px solid #eee;
+				@include width-height(30px);
+				@include border-radius($radius:100%);
+				img {
+					@include width-height(30px);
+					@include border-radius($radius:100%);
+				}
+			}
+
+			.i_text {
+				background: #fff;
+				position: relative;
+				padding: 10px;
+				-webkit-box-shadow: 1px 1px 1px #f1f1f1;
+				@include border-radius($radius:5px);
+				@include box-flex();
+				&:before {
+					content: '';
+					display: block;
+					border-style: solid;
+					border-width: 5px;
+					border-color: transparent #fff transparent transparent;
+					@include width-height(0);
+					@include position($left:-10px, $top:5px);
+				}
+				.i_name {
+					@include box($pack:justify);
+					p {
+						line-height: 20px;
+						padding-bottom: 5px;
+						&:nth-child(1) {
+							color: #f26829;
+						}
+						&:nth-child(2) {
+							font-size: 1.2rem;
+							color: #999;
+						}
+					}
+				}
+				.i_reply {
+					line-height: 20px;
+					display: block;
+
+					&>div {
+						font-size: 0;
+						img {
+							vertical-align: top;
+							display: inline-block;
+							margin-right: 10px;
+							margin-top: 10px;
+							@include width-height(70px);
+							@include border-radius($radius:3px);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.expand_live_submit {
+	background: #f8f8f8;
+	-webkit-box-shadow: 0 -2px 2px #000;
+	@include border-half($type:top);
+	@include position($left:0, $bottom:0, $width:100%);
+	.c_input {
+		padding: 5px 10px;
+		background: #eee;
+		@include border-half();
+		@include box();
+		input {
+			display: block;
+			border: 1px solid #ccc;
+			line-height: 20px;
+			padding: 5px 10px;
+			margin: 0 10px;
+			-webkit-box-shadow: inset 1px 1px 1px #eee;
+			@include border-radius($radius:30px);
+			@include box-flex();
+		}
+		div {
+			text-align: center;
+			background: #aaa;
+			color: #fff;
+			font-size: 1.8rem;
+			@include iconfont();
+			@include width-height-line(30px);
+			@include border-radius($radius:100%);
+		}
+	}
+
+	.c_img {
+		padding: 10px;
+		@include iconfont();
+		div {
+			text-align: center;
+			border: 1px dashed #ccc;
+			background: #f8f8f8;
+			font-size: 3.0rem;
+			color: #aaa;
+			@include width-height-line(60px);
+		}
+	}
+}

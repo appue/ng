@@ -1,0 +1,23 @@
+<div ng-if="tPage.view" class="mod_header_line"></div>
+<section ng-if="tPage.view" class="member_wallet">
+    <div class="page_list_detail">
+        <div class="c_status">
+            <p>{{tData.title}}</p>
+            <p>{{tData.withdrawAmount}}</p>
+        </div>
+
+        <div class="c_line {{tData.class}}">
+            <div><p></p><p></p><p></p></div>
+            <div>
+                <p>提出申请</p>
+                <p>系统处理中</p>
+                <p ng-if="tData.withdrawStatus!='2'">交易成功</p>
+                <p ng-if="tData.withdrawStatus=='2'">交易失败</p>
+            </div>
+        </div>
+
+        <div class="c_kefu">
+            如有问题请联系客服: kf@ajmide.com
+        </div>
+    </div>
+</section>

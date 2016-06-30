@@ -1,0 +1,21 @@
+<style type="text/css">
+body{background: #f8f8f8;}
+</style>
+<div class="mod_header_line"></div>
+<section class="help_jump">
+	<div>
+		<input ng-model="tData.input" type="text" placeholder="请输入网址http://" />
+		<button ng-click="toJump($event)">跳转</button>
+	</div>
+
+	<h3>
+		历史记录
+		<p ng-click="toClean($event)">清除</p>
+	</h3>
+
+	<ul ngd-click="toUrl($event, v)" selector="li">
+		<li ng-repeat="(k,v) in tData.list track by $index">
+			{{v.url}}
+		</li>
+	</ul>
+</section>

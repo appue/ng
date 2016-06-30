@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html class="no-js" ng-app="ajmd">
+    <head>
+        <base href="/" >
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <title>阿基米德</title>
+        <!-- build:css -->
+        <link rel="stylesheet" href="themes/all.css">
+        <!-- endbuild -->
+    </head>
+    <body>
+        <style type="text/css">
+        .appue_load {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            line-height: 20px;
+            text-align: center;
+            display: -webkit-box;
+            -webkit-box-align: center;
+            -webkit-box-pack: center;
+        }
+        </style>
+        <div class="appue_load" ng-show="!isContentLoaded">
+            资源载入中，请稍候...
+        </div>
+        <div ui-view="body"></div>
+        <show-loading></show-loading>
+        <show-error></show-error>
+        <!-- build:js -->
+
+        <!-- injectframe:js -->
+        <script src="library/frame/angular.js"></script>
+        <script src="library/frame/base64.js"></script>
+        <script src="library/frame/config.js"></script>
+        <script src="library/frame/fastclick.js"></script>
+        <script src="library/frame/iscroll.js"></script>
+        <script src="library/frame/script.js"></script>
+        <script src="library/frame/zepto.min.js"></script>
+        <!-- endinject -->
+
+        <!-- injectextend:js -->
+        <script src="library/extend/angular-animate.js"></script>
+        <script src="library/extend/angular-route.js"></script>
+        <script src="library/extend/angular-sanitize.js"></script>
+        <script src="library/extend/angular-touch.js"></script>
+        <script src="library/extend/angular-ui-router.js"></script>
+        <script src="library/extend/bindonce.js"></script>
+        <script src="library/extend/ng-iscroll.js"></script>
+        <!-- endinject -->
+
+        <script src="app.js"></script>
+
+        <!-- injectcommon:js -->
+        <script src="common/directives/component.js"></script>
+        <script src="common/directives/delegate_event.js"></script>
+        <script src="common/filters/filters.js"></script>
+        <script src="common/filters/filters_check.js"></script>
+        <script src="common/services/ajax.js"></script>
+        <script src="common/services/bridge.js"></script>
+        <script src="common/services/cache.js"></script>
+        <script src="common/services/check.js"></script>
+        <script src="common/services/compute.js"></script>
+        <script src="common/services/cookie.js"></script>
+        <script src="common/services/http_interceptor.js"></script>
+        <script src="common/services/redirect.js"></script>
+        <script src="common/services/resolve.js"></script>
+        <script src="common/services/storage.js"></script>
+        <script src="common/services/widget.js"></script>
+        <!-- endinject -->
+        
+        <!-- inject:js -->
+        <script src="expand/js/live.js"></script>
+        <script src="help/js/jump.js"></script>
+        <script src="help/js/reward.js"></script>
+        <script src="help/js/wallet.js"></script>
+        <script src="main/js/main.js"></script>
+        <script src="member/js/identity.js"></script>
+        <script src="member/js/live_create.js"></script>
+        <script src="member/js/live_note.js"></script>
+        <script src="member/js/live_pact.js"></script>
+        <script src="member/js/wallet.js"></script>
+        <script src="member/js/wallet_binding.js"></script>
+        <script src="member/js/wallet_list.js"></script>
+        <script src="member/js/wallet_user.js"></script>
+        <script src="member/js/wallet_withdraw.js"></script>
+        <script src="member/js/wallet_withdraw_detail.js"></script>
+        <script src="member/js/wallet_withdraw_list.js"></script>
+        <script src="forum/js/live_text.js"></script>
+        <!-- endinject -->
+        
+        <!-- endbuild -->
+    </body>
+</html>

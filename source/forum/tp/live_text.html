@@ -1,0 +1,8 @@
+<section class="forum_live_text">
+	<h3>{{tData.subject}}</h3>
+	<div class="c_text">
+		<article ng-if="tData.content" ng-bind-html="tData.content | trustHtml"></article>
+		<img ng-repeat="(k,v) in tData._img track by $index" ng-src="{{v.url}}@700w_1e_1c" />	
+	</div>
+	<!-- <div ng-click="toBack($event)" class="c_btn">&#xe603;</div> -->
+</section>

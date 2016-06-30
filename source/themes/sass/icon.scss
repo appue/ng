@@ -1,0 +1,26 @@
+﻿.icon_alipay {
+	@include icon($type:'\e617', $size:2.8rem, $color:#fff);
+	&:before {
+		background: #00aaef;
+	}
+}
+.icon_wechat {
+	@include icon($type:'\e618', $size:3.0rem, $color:#fff);
+	&:before {
+		background: #07b812;
+	}
+}
+.icon_alipay,
+.icon_wechat {
+	&:before {
+		display: inline-block;
+		text-align: center;
+		@include width-height-line(40px);
+		@include border-radius($radius:5px);
+	}
+}
+
+
+.icon_arrow {
+	@include icon($elem:after, $type:'\e61e', $size:1.6rem);
+}

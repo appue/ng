@@ -1,0 +1,11 @@
+<div class="mod_header_line"></div>
+<section class="help_wallet">
+	<ul ngd-click="showContent($event, v)" selector="h2">
+		<li ng-repeat="(k,v) in tData.list track by $index">
+			<h2 ng-class="{select: v.select}">
+				<p>{{v.title}}</p>
+			</h2>
+			<div ng-if="v.select">{{v.content}}</div>
+		</li>
+	<ul>
+</section>

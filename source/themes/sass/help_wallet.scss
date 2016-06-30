@@ -1,0 +1,32 @@
+.help_wallet {
+    ul {
+        // padding: 10px;
+        padding-top: 10px;
+        li {
+            @include border-half();
+            h2 {
+                line-height: 30px;
+                padding: 10px;
+                // font-weight: bolder;
+                font-size: 1.5rem;
+                @include box($pack:justify);
+                @include icon($elem:after, $type:'\e61e', $size:1.6rem);
+                p {
+                    @include ellipsis();
+                    @include box-flex();
+                }
+                &:after {
+                    display: block;
+                }
+                &.select {
+                    @include icon($elem:after, $type:'\e621');
+                }
+            }
+            div {
+                line-height: 20px;
+                padding: 0 10px 10px;
+                color: $green;
+            }
+        }
+    }
+}

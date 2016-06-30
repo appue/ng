@@ -1,0 +1,565 @@
+.member_wallet {
+    // 主持人钱包
+    .page_money {
+        .c_money {
+            color: #fff;
+            font-size: 1.6rem;
+            text-align: center;
+            padding: 10px 10px 30px;
+            background: -webkit-linear-gradient(-45deg, #fb8c70 0%, #f8a352 100%);
+            background: linear-gradient(135deg, #fb8c70 0%, #f8a352 100%);
+            @include box-sizing();
+            div {
+                line-height: 40px;
+                height: 40px;
+                span {
+                    width: 60px;
+                    height: 40px;
+                    line-height: 40px;
+                    background: none;
+                    font-size: 2.0rem;
+                    color: #fff;
+                    text-align: right;
+                    float: right;
+                    display: block;
+                    @include iconfont();
+                }
+            }
+            p {
+                width: 100%;
+                display: block;
+                line-height: 30px;
+                &:nth-child(2) {
+                    line-height: 40px;
+                }
+                &:nth-child(3) {
+                    font-size: 3.6rem;
+                    margin-bottom: 20px;
+                }
+                &:nth-child(5) {
+                    font-size: 3rem;
+                }
+                i {
+                    font-size: 1.2rem;
+                }
+            }
+        }
+
+
+        .c_button {
+            padding-top: 40px;
+            div {
+                &:nth-child(1) {
+                    background: $orange;
+                    color: #fff;
+                    line-height: 50px;
+                    margin: 0 30px;
+                    display: block;
+                    text-align: center;
+                    font-size: 1.6rem;
+                    margin-bottom: 20px;
+                    @include border-radius($radius:3px);
+                }
+                &:nth-child(2) {
+                    line-height: 30px;
+                    text-align: center;
+                    @include icon($type:'\e61e', $elem:after, $size:1.8rem);
+                }
+                &:nth-child(3) {
+                    text-align: center;
+                    line-height: 40px;
+                    @include position($type:fixed, $bottom:10px, $width:100%);
+                }
+            }
+        }
+    }
+
+    // 交易明细
+    .page_list {
+        background: #fff;
+        padding: 10px;
+        li {
+            margin-bottom: 10px;
+            @include border-half();
+            @include box($align:center, $pack:justify);
+            div {
+                &:nth-child(1) {
+                    @include box-flex();
+                    p {
+                        line-height: 30px;
+                        &:nth-child(1) {
+                            span {
+                                display: inline-block;
+                                vertical-align: middle;
+                                padding: 0 10px;
+                                line-height: 22px;
+                                color: #fff;
+                                background: $orange;
+                                margin-left: 10px;
+                                @include border-radius($radius:22px);
+                            }
+                        }
+                        &:nth-child(2) {
+                            color: $gray;
+                        }
+                    }
+                }
+                &:nth-child(2) {
+                    width: auto;
+                    &.red {
+                        color: $red;
+                    }
+                    &.green {
+                        color: $green;
+                    }
+                }
+            }
+        }
+    }
+
+    // 提现详情
+    .page_list_detail {
+        padding-top: 10px;
+        .c_status {
+            background: #fff;
+            padding: 10px;
+            margin-bottom: 10px;
+            p {
+                &:nth-child(1) {
+                    color: #aaa;
+                    line-height: 40px;
+                }
+                &:nth-child(2) {
+                    font-size: 3rem;
+                    line-height: 50px;
+                }
+            }
+        }
+        .c_line {
+            background: #fff;
+            padding: 10px;
+            div {
+                &:nth-child(1) {
+                    margin: 0 10px;
+                    position: relative;
+                    @include height-line(30px);
+                    &:before,
+                    &:after {
+                        content: '';
+                        background: #ddd;
+                        @include position($left:0, $top:50%, $width:100%, $height:4px, $mt:-2px, $index:1);
+                    }
+
+                    p {
+                        background: #ddd;
+                        position: absolute;
+                        top: 50%;
+                        margin-top: -8px;
+                        z-index: 2;
+                        @include border-radius($radius:100%);
+                        @include width-height-line(16px);
+                        &:nth-child(1) {
+                            left: -8px;
+                        }
+                        &:nth-child(2) {
+                            left: 50%;
+                            margin-left: -8px;
+                        }
+                        &:nth-child(3) {
+                            right: -8px;
+                        }
+                    }
+                }
+                &:nth-child(2) {
+                    @include box();
+                    p {
+                        line-height: 30px;
+                        @include box-flex();
+                        &:nth-child(1) {
+                            text-align: left;
+                        }
+                        &:nth-child(2) {
+                            text-align: center;
+                        }
+                        &:nth-child(3) {
+                            text-align: right;
+                        }
+                    }
+                }
+            }
+
+            &.cur_1 {
+                div {
+                    &:nth-child(1) {
+                        p {
+                            &:nth-child(1) {
+                                background: $orange;
+                            }
+                        }
+                    }
+                    &:nth-child(2) {
+                        p {
+                            &:nth-child(1) {
+                                color: $orange;
+                            }
+                        }
+                    }
+                }
+            }
+            &.cur_2 {
+                div {
+                    &:nth-child(1) {
+                        &:after {
+                            background: $orange;
+                            width: 50%;
+                        }
+                        p {
+                            &:nth-child(1),
+                            &:nth-child(2) {
+                                background: $orange;
+                            }
+                        }
+                    }
+                    &:nth-child(2) {
+                        p {
+                            &:nth-child(1),
+                            &:nth-child(2) {
+                                color: $orange;
+                            }
+                        }
+                    }
+                }
+            }
+            &.cur_3 {
+                color: $orange;
+                div {
+                    &:nth-child(1) {
+                        &:after {
+                            background: $orange;
+                        }
+                        p {
+                            background: $orange;
+                        }
+                    }
+                }
+            }
+        }
+        .c_kefu {
+            line-height: 20px;
+            text-align: center;
+            color: $gray;
+            @include position($type:fixed, $left:0, $bottom:10px, $width:100%, $index:1);
+        }
+    }
+
+    // 提现
+    .page_withdraw {
+        padding-top: 10px;
+        .c_input {
+            background: #fff;
+            padding: 10px;
+            @include box($align:center);
+            div {
+                &:nth-child(1) {
+                    color: $orange;
+                    font-size: 3.0rem;
+                }
+                &:nth-child(2) {
+                    margin: 0 10px;
+                    @include box-flex();
+                    @include box();
+                    input {
+                        color: $orange;
+                        display: block;
+                        font-size: 1.6rem;
+                        @include box-flex();
+                    }
+                }
+                &:nth-child(3) {
+                    color: $green;
+                }
+            }
+        }
+
+        .c_text {
+            line-height: 20px;
+            padding: 10px;
+            color: $gray;
+            @include icon($type:'\e60e', $color:#00aaef, $size:1.6rem);
+        }
+
+        .c_pay {
+            background: #fff;
+            padding: 0 10px 10px;
+            dt {
+                padding: 15px 0;
+                font-size: 1.6rem;
+                @include border-half();
+            }
+            dd {
+                padding: 10px 0;
+                @include box($align:center);
+                @include border-half();
+                // @include last-no();
+                &.i_alipay {
+                    @include icon($type:'\e606', $size:4.0rem, $color:#00aaef, $mr:10px);
+                    
+                }
+                &.i_wechat {
+                    @include icon($type:'\e605', $size:4.0rem, $color:#07b812, $mr:10px);
+                }
+                div {
+                    line-height: 23px;
+                    color: #aaa;
+                    @include box-flex();
+                    &:first-line {
+                        color: #333;
+                    }
+                }
+                p {
+                    border: 1px solid #ccc;
+                    @include border-radius($radius:100%);
+                    @include width-height-line(25px);
+                    &.select {
+                        border: 1px solid $orange;
+                        background: $orange;
+                        text-align: center;
+                        line-height: 23px;
+                        @include icon($type:'\e61f', $color:#fff);
+                    }
+                }
+            }
+        }
+
+        .c_btn {
+            background: #fff;
+            @include box($align:center);
+            @include position($type:fixed, $left:0, $bottom:0, $width:100%, $height:40px);
+            div {
+                line-height: 40px;
+                padding: 0 10px;
+                &:nth-child(1) {
+                    text-align: left;
+                    color: $orange;
+                    font-size: 2.0rem;
+                    @include box-flex();
+                    i {
+                        color: $gray;
+                        font-size: 1.2rem;
+                        padding-left: 10px;
+                    }
+                }
+                &:nth-child(2) {
+                    width: 80px;
+                    font-size: 1.6rem;
+                    line-height: 40px;
+                    text-align: center;
+                    color: #fff;
+                    background: $orange;
+                }
+            }
+        }
+    }
+
+    // 提现结果
+    .page_withdraw_result {
+        background: #fff;
+        div {
+            color: $gray;
+            padding-left: 50px;
+            position: relative;
+            height: 60px;
+            p {
+                line-height: 30px;
+                font-size: 1.6rem;
+                font-weight: bolder;
+            }
+            &:after {
+                color: #fff;
+                text-align: center;
+                @include width-height-line(30px);
+                @include border-radius($radius:100%);
+                @include position($left:10px, $top:10px);
+            }
+            &:nth-child(1) {
+                margin-bottom: 40px;
+                @include icon($elem:after, $type:'\e61f', $size:1.6rem);
+                &:after {
+                    background: $orange;
+                }
+                p {
+                    color: $orange;
+                }
+                &:before {
+                    content: '';
+                    width: 2px;
+                    height: 100px;
+                    background: -webkit-linear-gradient(top, $orange 0%, $orange 50%, #ddd 50%, #ddd 100%);
+                    @include position($left:24px, $top:25px);
+                }
+            }
+            &:nth-child(2) {
+                @include icon($elem:after, $type:'\e614', $size:2rem);
+                &:after {
+                    background: #ddd;
+                }
+                p {
+                    color: $gray;
+                }
+            }
+        }
+    }
+
+    // 用户钱包
+    .page_user {
+        .c_banner {
+            color: #fff;
+            font-size: 1.6rem;
+            text-align: center;
+            padding: 10px 10px 30px;
+            background: -webkit-linear-gradient(-45deg, #fb8c70 0%, #f8a352 100%);
+            background: linear-gradient(135deg, #fb8c70 0%, #f8a352 100%);
+            @include box-sizing();
+            .i_btn {
+                line-height: 40px;
+                height: 40px;
+                span {
+                    width: 60px;
+                    height: 40px;
+                    line-height: 40px;
+                    background: none;
+                    font-size: 3.0rem;
+                    color: #fff;
+                    text-align: right;
+                    float: right;
+                    display: block;
+                    @include iconfont();
+                }
+            }
+            p {
+                line-height: 30px;
+                margin-bottom: 20px;
+            }
+            .i_img {
+                overflow: hidden;
+                position: relative;
+                height: 80px;
+                ul {
+                    height: 60px;
+                    @include box();
+                    // @include overflow-scroll();
+                    @include position($left:0, $top:0);
+                    li {
+                        border: 5px solid rgba(255,255,255,0.5);
+                        margin-right: 10px;
+                        @include width-height(50px);
+                        @include border-radius($radius:50px);
+                        img {
+                            @include width-height(50px);
+                            @include border-radius($radius:50px);
+                        }
+                    }
+                }
+            }
+        }
+        
+        .c_list {
+            padding: 10px;
+            li {
+                margin-bottom: 10px;
+                @include box($align:center);
+                div {
+                    &:nth-child(1) {
+                        @include box-flex();
+                        p {
+                            line-height: 20px;
+                            &:nth-child(2) {
+                                color: $gray;
+                            }
+                        }
+                    }
+                    &:nth-child(2) {
+                        width: auto;
+                    }
+                }
+            }
+        }
+    }
+
+    // 账号绑定
+    .page_binding {
+        padding-top: 10px;
+        .i_type {
+            background: #fff;
+            padding: 0 10px;
+            @include border-half($type:y);
+            li {
+                padding: 10px 0;
+                @include box($align:center);
+                @include border-half();
+                p {
+                    line-height: 20px;
+                    &:nth-child(1) {
+                        margin-left: 10px;
+                        @include box-flex();
+                    }
+                }
+                @include last-no();
+            }
+        }
+
+        .i_acount {
+            background: #fff;
+            padding: 0 10px;
+            @include border-half($type:y);
+            li {
+                padding: 10px 0;
+                @include box($align:center);
+                @include border-half();
+                @include last-no();
+                div {
+                    &:nth-child(1) {
+                        margin-left: 10px;
+                        @include box-flex();
+                        p {
+                            line-height: 20px;
+                            &:nth-child(2) {
+                                color: $gray;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .i_text {
+            color: #999;
+            background: #f8f8f8;
+            @include position($type:fixed, $left:0, $bottom:0, $width:100%);
+            h3 {
+                position: relative;
+                margin: 0 10px;
+                margin-bottom: 10px;
+                text-align: center;
+                &:before {
+                    background: #ddd;
+                    content: '';
+                    @include position($left:0, $top:50%, $width:100%, $height:1px, $index:1);
+                    display: block;
+                }
+                p {
+                    display: inline-block;
+                    background: #f8f8f8;
+                    position: relative;
+                    padding: 0 10px;
+                    z-index: 2;
+                    font-size: 1.6rem;
+                }
+            }
+            div {
+                line-height: 20px;
+                padding: 10px 10px 20px;
+            }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+<div ng-if="tPage.view" class="mod_header_line"></div>
+<section ng-if="tPage.view" class="member_wallet">
+    <div class="page_money">
+        <div class="c_money">
+            <div>
+                <span ng-click="toQuestion($event)">&#xe616;</span>
+            </div>
+            <p>可提现金额</p>
+            <p>{{tData.content.withDrawAmount}}<i>元</i></p>
+            <!-- <p>{{tData.content.withDrawAmount | number:2}}<i>元</i></p> -->
+
+            <p>总收入</p>
+            <p>{{tData.content.totalAmount}}<i>元</i></p>
+            <!-- <p>{{tData.content.totalAmount | number:2}}<i>元</i></p> -->
+        </div>
+
+        <div class="c_button">
+            <div ng-click="toBank($event)">提现</div>
+
+            <div ng-click="toBinding($event)">查看绑定账户</div>
+        </div>
+    </div>
+</section>

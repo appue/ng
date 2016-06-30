@@ -1,0 +1,33 @@
+.forum_live_text {
+    padding-top: 30px;
+    h3 {
+        font-size: 1.8rem;
+        text-align: center;
+        line-height: 20px;
+        padding: 10px 0;
+        font-weight: bolder;
+    }
+    .c_text {
+        padding: 10px;
+        margin-bottom: 40px;
+        article {
+            line-height: 20px;
+            margin-bottom: 10px;
+        }
+        img {
+            width: 100%;
+            display: block;
+            margin-bottom: 10px;
+        }
+    }
+    .c_btn {
+        font-size: 4.0rem;
+        color: #333;
+        background: #fff;
+        text-align: center;
+        line-height: 40px;
+        padding: 10px 0;
+        @include iconfont();
+        @include position($type:fixed, $left:0, $bottom:0, $width:100%, $height:40px, $index:2);
+    }
+}

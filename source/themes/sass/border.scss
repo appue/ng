@@ -1,0 +1,36 @@
+﻿/**
+ * 半像素边框
+ * @example:
+ * @include border-half($type:bottom, $color: gray)
+ * 灰色半像素底部边框
+ */
+@mixin border-half(
+	$type: bottom,
+	$color: gray
+) {
+	@if $type == all {
+		border-width: 1px;
+		border: 1px solid #dedede;
+	} @else if $type == y {
+		border-width: 0;
+		border-top: 1px solid #dedede;
+		border-bottom: 1px solid #dedede;
+	} @else if $type == x {
+		border-width: 0;
+		border-left: 1px solid #dedede;
+		border-right: 1px solid #dedede;
+	} @else if $type == tr {
+		border-width: 0;
+		border-top: 1px solid #dedede;
+		border-right: 1px solid #dedede;
+	} @else if $type == rb {
+		border-width: 0;
+		border-right: 1px solid #dedede;
+		border-bottom: 1px solid #dedede;
+	} @else {
+		border-width: 0;
+		border-#{$type}: 1px solid #dedede;
+	}
+	
+	-webkit-border-image: url(img/border_half_#{$color}.png) 2 stretch;
+}

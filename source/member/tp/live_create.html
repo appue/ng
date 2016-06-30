@@ -1,0 +1,56 @@
+<!-- <aue-header header-title="init.title"></aue-header> -->
+<div ng-if="tPage.view" class="mod_header_line"></div>
+<section ng-if="tPage.view" class="member_live">
+    <div ng-if="tPage.show=='list'" class="member_create">
+    	<div class="c_flex">
+    		<section scroll-fix>
+		    	<dl class="c_create">
+		    		<dd>
+			    		<h3>选择社区:</h3>
+						<ul ngd-click="chooseProgram($event, v)" selector="li">
+							<li ng-repeat="(k,v) in tData.list track by $index" ng-class="{select: v.programId==tInput.programId, disable: v.isLive=='1' || v.isNetLive!='0'}">
+								{{v.name}}
+							</li>
+						</ul>
+						<div ng-if="tInput.time">该节目下次频率直播于：{{tInput.time}}</div>
+					</dd>
+					<dd class="i_input">
+						<input ng-model="tInput.title" placeholder="请输入标题(必填)" />
+					</dd>
+					<dd class="i_textarea">
+						<textarea ng-model="tInput.content" placeholder="请输入内容(选填)"></textarea>
+					</dd>
+		    	</dl>
+
+		    	<div ngd-click="deleteImage($event, k)" selector="p" class="c_create_img">
+					<div ng-repeat="(k,v) in tInput.img track by $index">
+						<img ng-src="{{v.url}}@80h_80w_1e_1c" />
+						<p></p>
+					</div>
+		    		<button ng-if="tInput.img.length<6" ng-click="uploadImages($event)"></button>
+		    	</div>
+	    	</section>
+    	</div>
+    	<section class="c_create_footer">
+    		<div>
+		    	<div>
+		    		<p ng-click="toCheck($event)" ng-class="{checked: tInput.check}"></p>
+		    		<p>我已阅读，并同意<span ng-click="toPact($event)">《直播服务协议》</span></p>
+		    	</div>
+		    </div>
+
+	    	<button ng-class="{able: tInput.check && tInput.title && tInput.programId}" ng-click="toCreate($event)">开始直播</button>
+    	</section>
+    </div>
+
+    <div ng-if="tPage.show=='text'" class="page_create">
+    	<div>Oops,暂无可用的直播间</div>
+    	<ul>
+    		<li ng-repeat="(k,v) in tData.list track by $index" ng-if="v.isLive=='1'">
+    			<h3>#{{v.name}}</h3>
+    			<p>本次频率直播结束时间:{{v.timeEndNext}}</p>
+    		</li>
+    	</ul>
+    	<p>社区直播结束5分钟后开始手机直播</p>
+    </div>
+</section>

@@ -1,0 +1,119 @@
+.member_identity {
+	.identity_show {
+		div {
+			line-height: 20px;
+			padding-top: 190px;
+			text-align: center;
+			margin-bottom: 40px;
+			font-size: 1.6rem;
+			background: url(img/img_card.jpg) no-repeat center 30px;
+			background-size: auto 150px;
+		}
+		ul {
+			li {
+				padding: 0 40px;
+				line-height: 30px;
+				color: $gray;
+			}
+		}
+	}
+
+	.identity_add {
+		padding: 10px;
+		.iname,
+		.imobile,
+		.icard {
+			// border-bottom: 1px solid $gray_border;
+			@include box();
+			@include border-half();
+			input {
+				line-height: 30px;
+				padding: 10px 0;
+				display: block;
+				font-size: 1.6rem;
+				@include box-flex();
+			}
+			&.err {
+				// border-bottom: 1px solid $orange;
+				@include border-half($color:orange);
+				input {
+					color: $orange;
+				}
+			}
+		}
+		.icard {
+			margin-bottom: 20px;
+		}
+		.iimg {
+			color: $gray;
+			li {
+				@include box();
+				img {
+					width: 100%;
+					display: block;
+					@include border-radius($radius:5px);
+				}
+				.a,
+				.b {
+					@include box-flex();
+				}
+				.a {
+					@include box();
+					.ia {
+						background: #d2d5dc;
+						@include icon($type:'\e612', $size:10rem, $color:#fff);
+						@include box($align:center, $pack:center);
+						@include box-flex();
+						@include border-radius($radius:5px);
+					}
+					.ib {
+						position: relative;
+						@include box-flex();
+						span {
+							color: #fff;
+							display: block;
+							background: rgba(0,0,0,0.9);
+							text-align: center;
+							font-size: 2.0rem;
+							@include iconfont();
+							@include width-height-line(30px);
+							@include border-radius($radius:30px);
+							@include position($right:-10px, $top:-10px, $index:1);
+						}
+					}
+				}
+				&:nth-child(2) {
+					padding-top: 10px;
+					line-height: 20px;
+					div {
+						text-align: center;
+						@include box-flex();
+					}
+				}
+			}
+		}
+		.ibtn {
+			line-height: 40px;
+			color: #fff;
+			background: $orange;
+			text-align: center;
+			@include position($type:fixed, $left:0, $bottom:0, $index:2, $width:100%, $height:40px);
+		}
+	}
+
+	.identity_result {
+		text-align: center;
+		line-height: 20px;
+		font-size: 1.6rem;
+		padding-top: 50px;
+		@include icon($type:'\e60c', $color:#fff, $size:7rem);
+		&:before {
+			background: #7ec751;
+			display: block;
+			margin: 0 auto;
+			margin-bottom: 30px;
+			@include width-height-line(120px);
+			@include border-radius($radius:120px);
+		}
+	}
+}

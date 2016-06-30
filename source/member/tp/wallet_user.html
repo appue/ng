@@ -1,0 +1,36 @@
+<div ng-if="tPage.view" class="mod_header_line"></div>
+<section ng-if="tPage.view" class="member_wallet">
+    <div class="page_user">
+        <div class="c_banner">
+            <div class="i_btn">
+                <!-- <span ng-click="toQuestion($event)">&#xe616;</span> -->
+            </div>
+            <p>最近赞过的主播</p>
+            <div ng-if="tData.latest.length > 0" id="wrapper" ng-iscroll="wrapper" ng-iscroll-delay="50" class="i_img">
+                <ul>
+                    <li ng-repeat="(k,v) in tData.latest track by $index">
+                        <img ng-src="{{v.presenterimgPath}}" />
+                    </li>
+                </ul>
+            </div>
+            <div ng-if="tData.latest.length == 0" style="text-align:center;color:#fff;padding-top:10px;">你还没有赞过任何一个主播哦！</div>
+        </div>
+
+        <ul class="c_list">
+            <li ng-repeat="(k,v) in tData.list track by $index">
+                <div>
+                    <p>打赏主持人{{v.presenterName}}</p>
+                    <p>{{v.orderDate}}</p>
+                </div>
+                <div>{{v.orderAmount}}</div>
+            </li>
+        </ul>
+
+        <!-- <div ng-if="tData.list.length>0 && tPage.pageEnd" style="width:100%;text-align:center;line-height:20px;">没有更多</div> -->
+        <!-- <div ng-if="tPage.isNo" class="mod_no" style="padding-top:100px;">暂无记录</div> -->
+        <no-more ng-if="tData.list.length>0 && tPage.pageEnd"></no-more>
+        <no-data ng-if="tPage.isNo"></no-data>
+        
+        <infinite-scroll ng-if="!tPage.pageEnd" on-infinite="loadMore()"></infinite-scroll>
+    </div>
+</section>

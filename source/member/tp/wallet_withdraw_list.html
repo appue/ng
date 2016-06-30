@@ -1,0 +1,22 @@
+<div class="mod_header_line"></div>
+<section class="member_wallet">
+    <ul ng-if="tData.list.length>0" ngd-click="toDetail($event, v)" selector="li" class="page_list">
+        <li ng-repeat="(k,v) in tData.list track by $index">
+            <div>
+                <p>
+                    {{v.orderRemark}}
+                    <span ng-if="v.withdrawStatus=='0'">处理中</span>
+                    <span ng-if="v.withdrawStatus=='2'">提现失败</span>
+                </p>
+                <p>{{v.orderDate}}</p>
+            </div>
+            <div class="green">{{v.orderAmount}}</div>
+        </li>
+    </ul>
+    
+    <!-- <div ng-if="tData.list.length>0 && tPage.pageEnd" style="width:100%;text-align:center;line-height:20px;">没有更多</div> -->
+    <no-more ng-if="tData.list.length>0 && tPage.pageEnd"></no-more>
+    <no-data ng-if="tPage.isNo"></no-data>
+    
+    <infinite-scroll ng-if="!tPage.pageEnd" on-infinite="loadMore()"></infinite-scroll>
+</section>

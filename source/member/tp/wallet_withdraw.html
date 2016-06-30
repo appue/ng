@@ -1,0 +1,51 @@
+<style type="text/css">
+body{background: #f8f8f8;}
+</style>
+<div ng-if="tPage.view" class="mod_header_line"></div>
+<section ng-if="tPage.view" class="member_wallet">
+    <div ng-if="!tPage.result" class="page_withdraw">
+        <div class="c_input">
+            <div>￥</div>
+            <div>
+                <input ng-model="tInput.money" ng-change="toChange()" ng-blur="toBlur()" type="text" placeholder="每次提现金额需大于100元" />
+            </div>
+            <div ng-click="toComplete($event)">全部提现</div>
+        </div>
+
+        <div class="c_text">根据<span>《直播服务协议》</span>,每次提现将会扣除您30%的服务手续费</div>
+        <!--<div>立即绑定到账账号</div>-->
+
+        <dl class="c_pay">
+            <dt>到账账号</dt>
+            <dd ng-if="tData.alipayAccount" class="i_alipay">
+                <div>
+                    支付宝<br>
+                    账号: {{tData.alipayAccount}}
+                </div>
+                <p class="select"></p>
+            </dd>
+            <dd ng-if="tData.wxAccount" class="i_wechat">
+                <div>
+                    微信支付<br>
+                    账号: {{tData.wxAccount}}
+                </div>
+                <p class="select"></p>
+            </dd>
+        </dl>
+
+        <div class="c_btn">
+            <div>￥{{tInput.money | inputMoney}}<i>(实际到账金额)</i></div>
+            <div ng-click="setPush($event)">确认提现</div>
+        </div>
+    </div>
+
+    <div ng-if="tPage.result" class="page_withdraw_result">
+        <div>
+            <p>转出已提交，等待系统处理</p>
+            {{tData.restime}}
+        </div>
+        <div>
+            <p>等待到账</p>
+        </div>
+    </div>
+</section>

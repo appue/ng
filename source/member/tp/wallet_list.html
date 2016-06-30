@@ -1,0 +1,31 @@
+<div class="mod_header_line"></div>
+<section class="member_wallet" style="padding-top:50px;">
+    <div class="mod_tab mod_fixed_tab">
+        <div ng-click="toTab(1)" ng-class="{select: tPage.tab==1}">收入</div>
+        <div ng-click="toTab(2)" ng-class="{select: tPage.tab==2}">支出</div>
+    </div>
+    
+    <ul ng-if="tData.list.length>0" class="page_list">
+        <li ng-repeat="(k,v) in tData.list track by $index">
+            <div>
+                <!-- <p ng-if="tPage.tab==1">收到{{v.userNick}}的打赏</p> -->
+                <p ng-if="tPage.tab==1">{{v.orderRemark}}</p>
+                <p ng-if="tPage.tab==2">打赏{{v.presenterName}}</p>
+                <p>{{v.orderDate}}</p>
+            </div>
+            <div ng-if="tPage.tab==1" class="green">
+                +{{v.orderAmount}}
+            </div>
+            <div ng-if="tPage.tab==2" class="red">
+                -{{v.orderAmount}}
+            </div>
+        </li>
+    </ul>
+
+    <!-- <div ng-if="tData.list.length>0 && tPage.pageEnd" style="width:100%;text-align:center;line-height:20px;">没有更多</div> -->
+    <!-- <div ng-if="tPage.isNo" class="mod_no" style="padding-top:100px;">暂无记录</div> -->
+    <no-more ng-if="tData.list.length>0 && tPage.pageEnd"></no-more>
+    <no-data ng-if="tPage.isNo"></no-data>
+
+    <infinite-scroll ng-if="!tPage.pageEnd" on-infinite="loadMore()"></infinite-scroll>
+</section>
